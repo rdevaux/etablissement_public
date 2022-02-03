@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/rdevaux/etablissement_public/static/css/main.3facaccd.css",
+    "main.js": "/rdevaux/etablissement_public/static/js/main.9dbd72bf.js",
+    "static/media/beffroi.jpg": "/rdevaux/etablissement_public/static/media/beffroi.83bb30b5353d0fbc305c.jpg",
+    "index.html": "/rdevaux/etablissement_public/index.html",
+    "main.3facaccd.css.map": "/rdevaux/etablissement_public/static/css/main.3facaccd.css.map",
+    "main.9dbd72bf.js.map": "/rdevaux/etablissement_public/static/js/main.9dbd72bf.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3facaccd.css",
+    "static/js/main.9dbd72bf.js"
+  ]
+}
