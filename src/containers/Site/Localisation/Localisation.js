@@ -1,6 +1,6 @@
 /***************************************
  *  IMPORT DES DIFFÉRENTS COMPONENTS   *
- *  ***********************************/ 
+ *  ***********************************/
 
 import React, { Component } from "react";
 import Titre from "../../../components/Titre/Titre";
@@ -10,14 +10,15 @@ import axios from "axios";
 
 /***************************************
  *  FUNCTION LOCALISATION              *
- *  ***********************************/ 
+ *  ***********************************/
 
 class Localisation extends Component {
 
     state = {
         listeEtablissement: null,
         loading: false,
-        numeroPageActuel: 1
+        numeroPageActuel: 1,
+        recherche: "",
     }
 
     /* RÉCUPÉRATION DES DATAS VIA L'API DU GOUVERNEMENT
@@ -38,6 +39,8 @@ class Localisation extends Component {
             })
     }
 
+
+
     render() {
 
         /* GESTION DE LA PAGINATION */
@@ -45,9 +48,10 @@ class Localisation extends Component {
 
         let pagination = [];
         let listeEtablissement = "";
+        let listeEtablissementFiltrer = "";
         if (this.state.listeEtablissement) {
-            let fin = this.state.listeEtablissement.length / 10;
-            if (this.state.listeEtablissement.length % 10 !== 0) fin++;
+            let fin = this.state.listeEtablissement.length / 20;
+            if (this.state.listeEtablissement.length % 20 !== 0) fin++;
             for (let i = 1; i <= fin; i++) {
                 pagination.push(
                     <Bouton
@@ -58,8 +62,8 @@ class Localisation extends Component {
                 );
             }
 
-            const debutListe = (this.state.numeroPageActuel - 1) * 10;
-            const finListe = this.state.numeroPageActuel * 10;
+            const debutListe = (this.state.numeroPageActuel - 1) * 20;
+            const finListe = this.state.numeroPageActuel * 20;
             const listeReduite = this.state.listeEtablissement.slice(debutListe, finListe);
             listeEtablissement = listeReduite.map(etablissement => {
                 return (
@@ -75,6 +79,21 @@ class Localisation extends Component {
                     </div>
                 )
             })
+            listeEtablissementFiltrer = this.state.listeEtablissement.filter(nom => nom.properties.nom.includes(this.state.recherche)).map(etablissement => {
+                return (
+                    <div key={etablissement.properties.id}>
+                        <Etablissement
+                            id={etablissement.properties.id}
+                            nom={etablissement.properties.nom}
+                            telephone={etablissement.properties.telephone}
+                            adresses={etablissement.properties.adresses}
+                            horaires={etablissement.properties.horaires}
+                            url={etablissement.properties.url}
+                        />
+                    </div>
+                )
+            })
+            // console.log(listeEtablissementFiltrer)
         }
 
         return (
@@ -85,6 +104,14 @@ class Localisation extends Component {
                     <Bouton typeBtn="btn-secondary" clic={() => this.rechercheEtablissement("commissariat_police")}>Commissariat de Police</Bouton>
                     <Bouton typeBtn="btn-secondary" clic={() => this.rechercheEtablissement("pole_emploi")}>Pôle Emploi</Bouton>
                     <Bouton typeBtn="btn-secondary" clic={() => this.rechercheEtablissement("prefecture")}>Préfecture</Bouton>
+                    <form className="d-flex">
+                        <input
+                            className="form-control me-sm-2"
+                            type="text"
+                            placeholder="Recherche"
+                            value={this.state.recherche}
+                            onChange={(event) => this.setState({ recherche: event.target.value })} />
+                    </form>
                 </div>
                 {
                     this.state.loading ?
@@ -93,7 +120,9 @@ class Localisation extends Component {
                         </div>
                         :
                         <>
-                            {listeEtablissement}
+                            {
+                                this.state.recherche === "" ? listeEtablissement : listeEtablissementFiltrer
+                            }
                         </>
                 }
                 <div className="mb-2">{pagination}</div>
@@ -104,6 +133,6 @@ class Localisation extends Component {
 
 /***************************************
  *  EXPORT DU COMPONENT                *
- *  ***********************************/ 
+ *  ***********************************/
 
 export default Localisation;
