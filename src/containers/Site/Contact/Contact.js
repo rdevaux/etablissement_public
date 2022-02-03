@@ -24,7 +24,7 @@ function Contact() {
                 <h2>Téléphone</h2>
                 <p>00 00 00 00 00</p>
                 <h2>Vous préfèrez nous écrire ?</h2>
-                <Bouton typeBtn="btn-primary" clic={setAfficheForm(afficheForm => !afficheForm)}>Formulaire de contact</Bouton>
+                <Bouton typeBtn="btn-primary" clic={() => setAfficheForm(afficheForm => !afficheForm)}>Formulaire de contact</Bouton>
                 {
                     afficheForm ? <ContactForm /> : <></>
                 }

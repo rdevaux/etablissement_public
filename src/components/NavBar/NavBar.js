@@ -9,13 +9,13 @@ const navBar = (props) => {
                     <div className="collapse navbar-collapse" id="navbarColor01">
                         <ul className="navbar-nav me-auto ms-auto">
                             <li className="nav-item">
-                                <NavLink to="/" className="nav-link">Accueil</NavLink>
+                                <NavLink to="/etablissement_public" className="nav-link">Accueil</NavLink>
                             </li>
                             <li className="nav-item">
-                            <NavLink to="/localisation" className="nav-link">Localisation</NavLink>
+                            <NavLink to="/etablissement_public/localisation" className="nav-link">Localisation</NavLink>
                             </li>
                             <li className="nav-item">
-                            <NavLink to="/contact" className="nav-link">Contact</NavLink>
+                            <NavLink to="/etablissement_public/contact" className="nav-link">Contact</NavLink>
                             </li>
                         </ul>
                     </div>

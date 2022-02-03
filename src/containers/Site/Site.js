@@ -24,9 +24,9 @@ class Site extends Component {
                     <NavBar /> {/* AFFICHAGE DE LA NAVBAR */}
                     <div className="container">
                         <Routes>
-                            <Route path="/" element={<Accueil />} /> {/* ROUTE VERS LA PAGE D'ACCUEIL */}
-                            <Route path="/localisation" element={<Localisation />} /> {/* ROUTE VERS LA PAGE LOCALISATION */}
-                            <Route path="/contact" element={<Contact />} /> {/* ROUTE VERS LA PAGE CONTACT */}
+                            <Route path="/etablissement_public/" element={<Accueil />} /> {/* ROUTE VERS LA PAGE D'ACCUEIL */}
+                            <Route path="/etablissement_public/localisation" element={<Localisation />} /> {/* ROUTE VERS LA PAGE LOCALISATION */}
+                            <Route path="/etablissement_public/contact" element={<Contact />} /> {/* ROUTE VERS LA PAGE CONTACT */}
                             <Route path="*" element={<Erreur404 />} /> {/* PAGE 404 EN CAS DE MAUVAIS URL */}
                         </Routes>
                         <div className="minSite"></div> {/* PERMET L'AFFICHAGE CORRECT DU FOOTER */}
