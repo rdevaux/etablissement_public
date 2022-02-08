@@ -44,7 +44,7 @@ class Localisation extends Component {
     render() {
 
         /* GESTION DE LA PAGINATION */
-        /* AFFICHE UNIQUEMENT 10 ETABLISSEMENTS PAR PAGE */
+        /* AFFICHE UNIQUEMENT 20 ETABLISSEMENTS PAR PAGE */
 
         let pagination = [];
         let listeEtablissement = "";
@@ -79,7 +79,11 @@ class Localisation extends Component {
                     </div>
                 )
             })
-            listeEtablissementFiltrer = this.state.listeEtablissement.filter(nom => nom.properties.nom.includes(this.state.recherche)).map(etablissement => {
+
+            /* GESTION DE LA RECHERCHE */
+            /* AFFICHE UNIQUEMENT LES ETABLISSEMENTS QUI ONT UNE CORRESPONDANCE AVEC LA RECHERCHE DE L'UTILISTEUR DANS LEUR NOM */
+
+            listeEtablissementFiltrer = this.state.listeEtablissement.filter(nom => nom.properties.nom.toLowerCase().includes(this.state.recherche.toLocaleLowerCase())).map(etablissement => {
                 return (
                     <div key={etablissement.properties.id}>
                         <Etablissement

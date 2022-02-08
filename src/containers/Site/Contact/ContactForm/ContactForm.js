@@ -59,6 +59,7 @@ const contactForm = (props) => {
                 }
             </div>
             <Bouton typeBtn="btn-primary mt-2 mb-2" clic={props.handleSubmit}>Valider</Bouton>
+            <Bouton typeBtn="btn-danger mt-2 mb-2" clic={props.closeModal}>Fermer</Bouton>
         </form>
     )
 };
