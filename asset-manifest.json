@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/etablissement_public/static/css/main.3facaccd.css",
-    "main.js": "/etablissement_public/static/js/main.72ba8bd3.js",
+    "main.css": "/etablissement_public/static/css/main.35a548ed.css",
+    "main.js": "/etablissement_public/static/js/main.170f2be5.js",
     "static/media/beffroi.jpg": "/etablissement_public/static/media/beffroi.83bb30b5353d0fbc305c.jpg",
     "index.html": "/etablissement_public/index.html",
-    "main.3facaccd.css.map": "/etablissement_public/static/css/main.3facaccd.css.map",
-    "main.72ba8bd3.js.map": "/etablissement_public/static/js/main.72ba8bd3.js.map"
+    "main.35a548ed.css.map": "/etablissement_public/static/css/main.35a548ed.css.map",
+    "main.170f2be5.js.map": "/etablissement_public/static/js/main.170f2be5.js.map"
   },
   "entrypoints": [
-    "static/css/main.3facaccd.css",
-    "static/js/main.72ba8bd3.js"
+    "static/css/main.35a548ed.css",
+    "static/js/main.170f2be5.js"
   ]
 }
